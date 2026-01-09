@@ -1,1 +1,27 @@
 /* Write your CSS here */
+.li-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffffff33;
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 10px;
+  width: 45%;
+}
+
+.logo {
+  width: 150px;
+  height: 200px;
+}
+.team-name {
+  color: #ffffff;
+  font-family: Bree Serif;
+  font-size: 24px;
+}
+@media (max-width: 576px) {
+  .li-container {
+    width: 90%;
+  }
+}

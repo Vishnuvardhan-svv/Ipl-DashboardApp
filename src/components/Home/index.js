@@ -1,3 +1,4 @@
+import {Component} from 'react'
 import './index.css'
 import TeamCard from '../TeamCard'
 
@@ -11,7 +12,7 @@ class Home extends Component {
   getTeamsList = async () => {
     const response = await fetch('https://apis.ccbp.in/ipl')
     const data = await response.json()
-    const formattedData = data.map(each => ({
+    const formattedData = data.teams.map(each => ({
       name: each.name,
       id: each.id,
       teamImageUrl: each.team_image_url,
@@ -22,7 +23,7 @@ class Home extends Component {
   render() {
     const {teamList} = this.state
     return (
-      <div>
+      <div className="bg-container">
         <div>
           <img
             src="https://assets.ccbp.in/frontend/react-js/ipl-logo-img.png"
@@ -30,7 +31,7 @@ class Home extends Component {
           />
           <h1>IPL Dashboard</h1>
         </div>
-        <ul>
+        <ul className="ul-container">
           {teamList.map(each => (
             <TeamCard each={each} key={each.id} />
           ))}
