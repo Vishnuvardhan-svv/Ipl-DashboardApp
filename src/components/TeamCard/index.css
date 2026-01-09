@@ -30,9 +30,9 @@
   color: inherit;
   display: block;
 }
-.align-side{
+.align-side {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
