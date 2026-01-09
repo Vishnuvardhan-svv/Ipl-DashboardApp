@@ -25,3 +25,14 @@
     width: 90%;
   }
 }
+.link-item {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.align-side{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
