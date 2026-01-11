@@ -30,7 +30,7 @@ class TeamMatches extends Component {
       competingTeamLogo: data.latest_match_details.competing_team_logo,
       firstInnings: data.latest_match_details.first_innings,
       secondInnings: data.latest_match_details.second_innings,
-      matchstatus: data.latest_match_details.match_status,
+      matchStatus: data.latest_match_details.match_status,
     }
     const recentMatchDetailsData = data.recent_matches.map(each => ({
       umpires: each.umpires,
@@ -43,7 +43,7 @@ class TeamMatches extends Component {
       competingTeamLogo: each.competing_team_logo,
       firstInnings: each.first_innings,
       secondInnings: each.second_innings,
-      matchstatus: each.match_status,
+      matchStatus: each.match_status,
     }))
     this.setState({
       teamBanner: teamBannerData,
@@ -55,13 +55,14 @@ class TeamMatches extends Component {
   render() {
     const {teamBanner, latestMatchDetails, recentMatchDetails} = this.state
     return (
-      <div>
-        <img src={teamBanner} alt="" />
+      <div className="bg-container-2">
+        <img src={teamBanner} />
+        <h1>Latest match</h1>
         <LatestMatch
           key={latestMatchDetails.id}
           latestMatchDetails={latestMatchDetails}
         />
-        <ul>
+        <ul className="ul-container">
           {recentMatchDetails.map(each => (
             <MatchCard key={each.id} each={each} />
           ))}
