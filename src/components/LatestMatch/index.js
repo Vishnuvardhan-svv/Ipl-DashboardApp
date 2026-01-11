@@ -11,7 +11,6 @@ const Latestmatch = props => {
     competingTeamLogo,
     firstInnings,
     secondInnings,
-    matchStatus,
   } = latestMatchDetails
   return (
     <div>

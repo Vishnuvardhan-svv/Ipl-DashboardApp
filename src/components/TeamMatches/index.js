@@ -15,6 +15,7 @@ class TeamMatches extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
+    console.log(id)
     const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const data = await response.json()
     const teamBannerData = data.team_banner_url
@@ -56,10 +57,13 @@ class TeamMatches extends Component {
     return (
       <div>
         <img src={teamBanner} alt="" />
-        <LatestMatch latestMatchDetails={latestMatchDetails} />
+        <LatestMatch
+          key={latestMatchDetails.id}
+          latestMatchDetails={latestMatchDetails}
+        />
         <ul>
           {recentMatchDetails.map(each => (
-            <MatchCard each={each} />
+            <MatchCard key={each.id} each={each} />
           ))}
         </ul>
       </div>
