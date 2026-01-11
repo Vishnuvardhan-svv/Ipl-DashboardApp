@@ -1,11 +1,17 @@
 // Write your code here
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import './index.css'
 import MatchCard from '../MatchCard'
 import LatestMatch from '../LatestMatch'
 
 class TeamMatches extends Component {
-  state = {teamBanner: '', latestMatchDetails: {}, recentMatchDetails: []}
+  state = {
+    teamBanner: '',
+    latestMatchDetails: {},
+    recentMatchDetails: [],
+    isLoading: true,
+  }
 
   componentDidMount() {
     this.getTeamData()
@@ -49,25 +55,35 @@ class TeamMatches extends Component {
       teamBanner: teamBannerData,
       latestMatchDetails: latestMatchDetailsdata,
       recentMatchDetails: recentMatchDetailsData,
+      isLoading: false,
     })
   }
 
   render() {
-    const {teamBanner, latestMatchDetails, recentMatchDetails} = this.state
+    const {teamBanner, latestMatchDetails, recentMatchDetails, isLoading} =
+      this.state
     return (
-      <div className="bg-container-2">
-        <img src={teamBanner} />
-        <h1>Latest match</h1>
-        <LatestMatch
-          key={latestMatchDetails.id}
-          latestMatchDetails={latestMatchDetails}
-        />
-        <ul className="ul-container">
-          {recentMatchDetails.map(each => (
-            <MatchCard key={each.id} each={each} />
-          ))}
-        </ul>
-      </div>
+      <>
+        {isLoading ? (
+          <div testid="loader">
+            <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          </div>
+        ) : (
+          <div className="bg-container-2">
+            <img src={teamBanner} alt="team banner" />
+            <h1>Latest match</h1>
+            <LatestMatch
+              key={latestMatchDetails.id}
+              latestMatchDetails={latestMatchDetails}
+            />
+            <ul className="ul-container">
+              {recentMatchDetails.map(each => (
+                <MatchCard key={each.id} each={each} />
+              ))}
+            </ul>
+          </div>
+        )}
+      </>
     )
   }
 }

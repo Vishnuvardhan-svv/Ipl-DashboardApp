@@ -25,3 +25,9 @@ ul {
   align-items: center;
   color: #ffffff;
 }
+.loader-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

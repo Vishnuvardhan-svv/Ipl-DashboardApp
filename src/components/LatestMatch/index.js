@@ -17,7 +17,7 @@ const Latestmatch = props => {
   return (
     <div className="latest-match-container">
       <div>
-        <h1>{competingTeam}</h1>
+        <p>{competingTeam}</p>
         <p>{date}</p>
         <p>{venue}</p>
         <p>{result}</p>

@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import './index.css'
 import TeamCard from '../TeamCard'
 
@@ -21,22 +22,30 @@ class Home extends Component {
   }
 
   render() {
-    const {teamList} = this.state
+    const {teamList, isLoading} = this.state
     return (
-      <div className="bg-container">
-        <div className="logo-container">
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/ipl-logo-img.png"
-            alt="ipl logo"
-          />
-          <h1>IPL Dashboard</h1>
-        </div>
-        <div className="ul-container">
-          {teamList.map(each => (
-            <TeamCard each={each} key={each.id} />
-          ))}
-        </div>
-      </div>
+      <>
+        {isLoading ? (
+          <div testid="loader" className="loader-container">
+            <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          </div>
+        ) : (
+          <div className="bg-container">
+            <div className="logo-container">
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/ipl-logo-img.png"
+                alt="ipl logo"
+              />
+              <h1>IPL Dashboard</h1>
+            </div>
+            <div className="ul-container">
+              {teamList.map(each => (
+                <TeamCard each={each} key={each.id} />
+              ))}
+            </div>
+          </div>
+        )}
+      </>
     )
   }
 }

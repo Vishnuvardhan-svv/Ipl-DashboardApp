@@ -5,7 +5,7 @@ const MatchCard = props => {
   const {each} = props
   const {competingTeamLogo, result, competingTeam, matchStatus} = each
   return (
-    <li className="li-container">
+    <li className="li-container-1">
       <img src={competingTeamLogo} alt={`competing team ${competingTeam}`} />
       <p>{competingTeam}</p>
       <p>{result}</p>

@@ -5,8 +5,8 @@ const TeamCard = props => {
   const {each} = props
   const {name, teamImageUrl, id} = each
   return (
-    <div className="li-container">
-      <Link to={`/ipl/${id}`} className="link-item">
+    <li className="li-container" key={id}>
+      <Link to={`/team-matches/${id}`} className="link-item">
         <div className="align-side">
           <div>
             <img src={teamImageUrl} alt={name} className="logo" />
@@ -16,7 +16,7 @@ const TeamCard = props => {
           </div>
         </div>
       </Link>
-    </div>
+    </li>
   )
 }
 export default TeamCard
